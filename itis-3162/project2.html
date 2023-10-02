@@ -9,14 +9,14 @@
 <body>
     <header>
         <a href="/index.html">
-        <h1>
-            Smit Sakariya
-        </h1>
-    </a>
+            <h1>
+                Smit Sakariya
+            </h1>
+        </a>
         <nav>
             <ul>
                 <li><a href="javascript:alert('Not Transfer For Wix Yet')">Project 1</a></li>
-                <li><a href="project2.html">Project 2</a></li>
+                <li><a href="project2.html"><u>Project 2</u></a></li>
                 <li><a href="javascript:alert('Not yet assigned')">Project 3</a></li>
                 <li><a href="javascript:alert('Not yet assigned')">Project 4</a></li>
             </ul>
@@ -24,7 +24,128 @@
     </header>
     <main>
         <h3>Project 2: Detecting Cancer Cell Impact</h3>
-        <p>I'm hosted with GitHub Pages.</p>
+        <h5>Introducation to the problem</h5>
+        <p>Cancer is one of the most feared groups of diseases in the world
+            because your own cells start causing your body damage.
+            One of the difficulties of treating cancers is that
+            there are just too many factors that cause them.
+            But also, once you get them, since they are in the end your own cell mutated,
+            they can be difficult to treat without impacting healthy cells.
+            Due to the similarity, detecting many types of cancer early on is also difficult.
+            In this project, we will use a cell date set to answer:
+            “Can a model be created that can, with high success,
+            determine which mutated cells are dangers and which are not?”.</p>
+
+        <br>
+        <h5>Introducation to the data</h5>
+        <p>
+            The dataset we will use was downloaded from Kaggle.com.
+            The dataset was posted by Erdem Taha, a computer engineering student at Istanbul Arel University.
+            The data was last updated six months before this analysis.
+            The dataset is a collection of 569 cells, and there are 32 columns of data.
+            The first column is the ID. The second is the diagnosis.
+            As in whether the cell is benign or malignant,
+            and the rest of the columns have many physical characteristics of the cell.
+
+        </p>
+        <div class="inline">
+            <h5>Pre-processing</h5>
+            <a href="project-files/Project 2 Code.ipynb" style="align-self: flex-end;">(Code File)</a>
+        </div>
+        <p>
+            We start dataset processing by loading it as a Pandas dataframe.
+            <img class="code" src="images/P2LoadingData.PNG">
+            Next, check the data for nulls to see if we need to clean the data.
+            <img class="code" src="images/P2NullCheck.png">
+            The last value, 'unnamed:32' contains only nulls this is due to some file formatting issues.
+            <img class="code" src="images/P2DropRandomColumn.png">
+            The data doesn't require any more cleaning, so we move on to preparing for model creation.
+            First, we split the dataframe into two, one holding the features of a cell and
+            another hold its category. We also drop ID during this step because
+            we don't want this arbitrary value to impact our model.
+            <img class="code" src="images/P2SplitDiagnosis.png">
+            First, let's see what the split of categories is.
+            The split is 2 to 3, with more Benign cells.
+            <img class="code" src="images/P2CategorySplit.png">
+            Since we are going to be using a learning algorithm,
+            we split the data into training and testing data.
+            For no particular reason, I choose to use 80% of the
+            data for learning and the other 20% for testing.
+            <img class="code" src="images/P2DataSplit.png">
+            Now that we have our data ready we move on to training our model.
+        </p>
+
+        <br>
+        <h5>Modeling/Visualization</h5>
+        <p>
+            So now we must decide which type of model we should create for this data.
+            There are four categories K-Nearest Neighbors, Naive Bayes, Support Vector Machines, and Random Forest.
+            I chose SVM by the process of elimination.
+            KNN is out because it is sensitive to outliers and also doesn't work well with large datasets.
+            Random Forest is out because it can overfit the data. Despite the lower chance, we don't choose it since
+            we have more options left.
+            Lastly, we remove Naive Bayes because it assumes all features to be independent.
+            This is an issue because based on the pairplot below we can see there are high corrolation between many
+            features.
+            So we go with SVM, which is scalable to large datasets and
+            would still work well with potentially overlapping data.
+            Its speed is also competitive with other options with this large dataset.
+            <img class="code" src="images/P2PairPlot.png">
+            We still have to decide which kernel to use for Support vector machines. We create a model starting with
+            a linear kernel.
+            <img class="code" src="images/P2CreatingModel.png">
+        </p>
+
+        <br>
+        <h5>Evaluation</h5>
+        <p>
+            Now we will test the f1 score of the model.
+            We chose f1 score over other options because
+            both false positives and false negatives are harmful.
+            False positives where a benign cell is indicated as malignant cell would mean
+            someone would get chemotherapy, which can have other long term negative impacts.
+            False negatives where a malignant cell is indicated as a benign cell mean we miss cancer cells,
+            which is the whole point of this analysis.
+            <img class="code" src="images/P2LinearF1Score.png">
+            The high f1 score in the previous section suggests that this SVM model is
+            highly above the baseline for predicting whether a cell is malignant.
+            This was with no more fine tuning past the simplest and default options.
+            With more data and more finely tuned variables,
+            creating a model with a higher f1 score should be possible.
+            Those are beyond the scope of the current analysis.
+
+        </p>
+
+        <br>
+        <h5>Storytelling</h5>
+        <p>
+            Based on this modeling, it seems we can get a few details about the physical
+            characteristics of cells that make it possible to predict with high certainty
+            which cells are malignant.
+            This means the challenges of detecting harmful cancer’s cells may not be
+            there physical characteristics but some other features that
+            we are not able to detect and read easily.
+            Things such as where to look for these cells in the first place.
+        </p>
+        <br>
+        <h5>Impact</h5>
+        <p>
+            As our technology advances and our ability to create
+            microscope technology or biology grows, understanding which
+            physical characteristics can be used to determine whether a cell is
+            malignant can help us design robots or biology that can directly interact with and
+            attack only malignant cells. This analysis proves that, while not perfect
+            physical characteristics are a viable option, differentiating between
+            benign and malignant cancer cells
+        </p>
+
+        <br>
+        <h5>References</h5>
+        <p> My Dataset:
+            <a href="https://www.kaggle.com/datasets/erdemtaha/cancer-data" target="_blank">
+                https://www.kaggle.com/datasets/erdemtaha/cancer-data
+            </a>
+        </p>
     </main>
 </body>
 
