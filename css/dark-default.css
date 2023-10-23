@@ -9,7 +9,7 @@
 
 * {
     margin:0;
-    padding: 0;
+
     box-sizing: border-box;
 }
 
@@ -17,7 +17,7 @@ a {
     text-decoration: none;
 }
 
-ul {
+header ul {
     list-style-type: none;
 }
 
@@ -100,15 +100,26 @@ main img {
     margin:0 auto;
 }
 
+figcaption {
+    display: flex;
+    justify-content: center;
+}
+
 .inline {
     display: inline-flex;
 }
 
-.code {
+.code-img {
     display: flexbox;
     background-color: var(--darked-background);
     padding: 5px;
     max-width: 100%;
     border: 1px solid var(--normal-text);
     margin: 0 auto;
+}
+
+.fit-screen {
+    display: flexbox;
+    padding: 5px;
+    max-width: 100%;
 }
