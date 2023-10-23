@@ -28,10 +28,9 @@
         <p>
             Compared to a few years ago, the housing market has grown extremely unstable as finding affordable housing
             gets more difficult. The percentage of young adults living with parents currently is close to that of those
-            with the Great
-            Depression. In this project, we hope to use data mining models to answer questions like: What features in a
-            house impact
-            the price the most? These may help new home buyers negotiate pricing if a house is missing a feature.
+            with the Great Depression. In this project, we hope to use data mining models to answer questions like: What
+            features in a house impact the price the most? These may help new home buyers negotiate pricing if a house
+            is missing a feature.
             <br>
             The dataset used for this project was downloaded from Kaggle.com. Though it was originally compiled by Dean
             De Cock for use in data science education. The data on houses in Ames, Iowa. The dataset has 81 columns of
@@ -53,7 +52,6 @@
             of best fit, the sum of squares will keep decreasing. This method is called the least-squares method and
             will get to a line that comes closest to predicting the actual value given the inputs. In the final line, as
             the m coefficient of a value gets closer to 0, it means its impact on the final y is lower.
-
         </p>
 
         <br>
@@ -62,31 +60,31 @@
             Before anything, we need to convert and load the CSV data file into a Pandas dataframe.
             <img class="code-img" src="images/P3Initial.png">
             Looking at the shape of the data frame, we notice that it contains a really large amount of data, so we will
-            likely need to find ways to reduce the size to increase modelling speed. But for now onward to just
-            understand what we are working with. The kaggle page already provides a good description of all the
-            features. So I moved on for checking for nulls.
+            likely need to find ways to reduce the size to increase modeling speed. But for now onward, just understand
+            what we are working with. The Kaggle page already provides a good description of all the features. So I
+            moved on to checking for nulls.
             <img class="code-img" src="images/P3NullCheck.png">
-            As we see many features haves nulls. We see that there are grouping with similar number of null values.
-            For instance four garage related features all have 81 null values. Hence there may be multi-collinearity
+            As we see, many features have nulls. We see that there are groupings with similar numbers of null values.
+            For instance, four garage-related features all have 81 null values. Hence, there may be multicollinearity
             between these features.
         </p>
 
         <br>
         <h5>Pre-processing</h5>
         <p>
-            For the features which barely have an nulls we will take care of that by just dropping rows containing them.
-            Since is a a really small percent of the entire dataset it should impact our models.
+            For the features that barely have nulls, we will take care of that by just dropping rows containing them.
+            Since this is a really small percent of the entire dataset, it should impact our models.
             <img class="code-img" src="images/P3DropSomeNulls.png">
-            We also can remove the columns with large null count because a large portion of our dataset doesn't have
-            those values anyway and my just looking at them it seems to be for extra things not the main house itself.
+            We can also remove the columns with a large null count because a large portion of our dataset doesn't have
+            those values anyway, and just looking at them, it seems to be for extra things, not the main house itself.
             <img class="code-img" src="images/P3NoNulls.png">
-            Next we must also drop all non numerical columns as our regression model doesn't support them and we already
-            have too many columns so creating dummy columns for each would increase the model training time
+            Next, we must also drop all non-numerical columns as our regression model doesn't support them, and we
+            already have too many columns, so creating dummy columns for each would increase the model training time
             significantly.
             <img class="code-img" src="images/P3NumsOnly.png">
-            Next we also drop the Id column since its an arbitary value for the dataset not actually housing.
+            Next, we also drop the ID column since its an arbitrary value for the dataset and not actually housing.
             <img class="code-img" src="images/P3DropId.png">
-            Now we move on to separting data into two: independent varaibles (our features) and output or d ependent
+            Now we move on to separating data into two: independent variables (our features) and output or dependent
             variable (the house price).
             <img class="code-img" src="images/P3SplitPrice.png">
         </p>
@@ -94,60 +92,76 @@
         <br>
         <h5>Modeling</h5>
         <p>
-            For the first experiment I am going to use Linear regression in an attempt to model the dataset. We will use
-            the model trainer from sklearn libary to create this. Before we begin we must further split if the features
-            and price dataframes to create training and testing sets.
-            Finally we import, create and train our linear model on the training subset. We run the model many times
-            keeping track of an average and the best scoring model to ensure accurary.
+            For the first experiment, I am going to use linear regression in an attempt to model the dataset. We will
+            use the model trainer from the Sklearn library to create this. Before we begin, we must further split the
+            features and price dataframes to create training and testing sets. Finally, we import, create, and train our
+            linear model on the training subset. We run the model many times, keeping track of an average and the best
+            scoring model to ensure accuracy.
             <img class="code-img" src="images/P3LinearModel.PNG">
         </p>
 
         <br>
         <h5>Evaluation</h5>
         <p>
-            After training we get a varity of scores with the highest I have seen being around 0.876.
+            After training, we get a variety of scores, with the highest I have seen being around 0.876.
             <img class="code-img" src="images/P3LinearScore.png">
-            Looking at the coefficients of the model with the above score we get.
+            Looking at the coefficients of the model with the above score, we get.
             <img class="code-img" src="images/P3LinearCoef.png">
-            It seems of the remaining features we can see with has the most positive and negative values on price.
-            A surpricing thing I see is that LotArea doesn't seem to have much impact on the value which is against I
-            believe to be true. Some things came as expected like overallQuality has the most positive impact on the
-            price. Another surpricing positive is that a basement full bathroom seems to have more than twice as much
-            impact on the price has a non basement full bathroom.
+            It seems that the remaining features we can see have the most positive and negative values in terms of
+            price. A surprising thing I see is that LotArea doesn't seem to have much impact on the value, which is
+            against what I believe to be true. Some things came as expected, like overall quality, which has the most
+            positive impact on the price. Another surprising positive is that a basement full bathroom seems to have
+            more than twice as much impact on the price as a non basement full bathroom.
         </p>
 
         <br>
         <h5>Experiment 2</h5>
         <p>
-            Since we remove many features I am going to now try and see if keeping them. Since using dummies causes more
-            than 250 columns I decided against this.
+            Since we removed many features, I am going to now try and see if we can keep them. Since using dummies
+            causes more than 250 columns, I decided against this.
             <img class="code-img" src="images/P3DummiesAttempt.png">
-            Instead I used LabelEncoder from the sklearn libary to encode each catergorical value into a number. This
-            leaves us with the strings being useable while also not changing the number of columns.
+            Instead, I used LabelEncoder from the Skelearn library to encode each categorical value into a number. This
+            leaves us with the strings being usable while also not changing the number of columns.
             <img class="code-img" src="images/P3EncodedDf.PNG">
-            The average score for the this new dataframe was better by 0.02 but the best model was still 0.876.
-            In terms of coefficent it seems street (Paved or gravel) has the most impact of all dwarfing the second most
-            positive impact by more than three times. The most negative impact can be caused by with the property has
-            utilities which is logical.
-
+            The average score for this new dataframe was better by 0.02, but the best model was still 0.876. In terms of
+            coefficient, it seems street (paved or gravel) has the most impact of all, dwarfing the second most positive
+            impact by more than three times. The most negative impact can be caused by the fact that the property has
+            utilities, which is logical.
         </p>
 
         <br>
         <h5>Experiment 3</h5>
         <p>
+            In our data understanding, we saw that there may have been a correlation between some features. Let's see if
+            another correlation exists using a correlation heatmap. There are some obvious correlations, like those
+            between Garage Year Built and Year the Whole House, because most houses built in this era are built with
+            garages. The lowest row also shows values that have the most impact on the house price. Like predicted
+            Overall quality is more important than one individual value. Lastly, a surprising correlation I noticed is
+            that there is a 51% correlation between the full bathroom and the number of cars in the garage. While there
+            isn't a connection between square feet on the first or second floor and the number of cars in the garage.
 
+            <img class="fit-screen" src="images/P3HeatMap.png">
         </p>
 
         <br>
         <h5>Impact</h5>
         <p>
-
+            The true impacts of this project are unknown. An obvious positive is that new buyers can use this
+            understanding of how each feature impacts a house price to negotiate and understand whether a price is
+            fair. But with this project also comes a negative impact. A realtor and company can use this information to
+            figure out features that have the most negative impact on price, thus focusing on trying make them difficult
+            to find or just lie about a property.
         </p>
 
         <br>
         <h5>Conclusion</h5>
         <p>
-
+            In conclusion, in terms of impact, the price of a house is influenced by its overall quality the most,
+            rather than one feature. Additionally, because of the significant accuracy of an even basic linear model, it
+            suggests that There is an objective method for calculating the expected housing price. Rather than what we
+            seem to see now, a days where even the most simple houses have a high asking price without supporting
+            features. So the next time you are in search of a house maybe compile a dataset of houses sold and on sale
+            in the area and create a model to determine what features the market in the area is asking the most for.
         </p>
 
         <br>
@@ -159,7 +173,11 @@
             </a>
             <br>
             Code File:
-            <a href="project-files/Project 3 Code.ipynb" style="align-self: flex-end;">Project 3 Code.ipynb</a>
+            <a href="project-files/Project 3 Code.ipynb" target="_blank">Project 3 Code.ipynb</a>
+            <br>
+            ChatGPT Use:
+            <a href="https://chat.openai.com/share/44e8666a-6ef0-4b85-acea-76b2441ea5e4"
+                target="_blank">https://chat.openai.com/share/44e8666a-6ef0-4b85-acea-76b2441ea5e4</a>
         </p>
     </main>
 </body>
