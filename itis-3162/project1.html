@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/dark-default.css">
+</head>
+
+<body>
+    <header>
+        <a href="/index.html">
+            <h1>
+                Smit Sakariya
+            </h1>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="project1.html"><u>Project 1</u></a></li>
+                <li><a href="project2.html">Project 2</a></li>
+                <li><a href="project3.html">Project 3</a></li>
+                <li><a href="javascript:alert('Not yet assigned')">Project 4</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h3>Differentiating Cancer Cells</h3>
+        <h5>Introducation to the problem</h5>
+        <p>
+            The gaming industry has been growing rapidly in recent years. With this growth, its impact on society has
+            also increased. Hence, looking at the trends from the dataset of <u>what games hit the highest viewership
+            throughout the years</u> may help us see what type of content people are watching. For instance, we may notice
+            more multiplier games during the colder months, when desire for human contact increases. The trends also
+            have a more guaranteed use case. Game developers can use trends that may appear to influence the genres of
+            games we make and the content within them. Looking at <u>what games lost streamers or viewers quickly</u>, like
+            within months, may show genres that are harder to make games for.
+        </p>
+
+        <br>
+        <h5>Introducation to the data</h5>
+        <p>
+            The dataset we will use was downloaded from Kaggle.com, which I got from datasetsearch.research.google.com.
+            The dataset was created by RAN.KIRSH, and data was collected from sullygnome.com, which tracks this data.
+            <br>
+            <br>
+            The data for the top 200 games on Twitch every month from January 2016 to March 2023. Data that is collected
+            for the database is ranked at the time of collection, name, month and year of data collection, hours
+            watched, hours streamed, peak viewers, peak channels, streamers, average viewers, average channels, and
+            average viewer to channel ratio. The dataset currently includes all sections of Twitch, not just gaming.
+            Sections included are: just chatting, art, food and drinks, etc.
+        </p>
+
+        <br>
+        <div class="inline">
+            <h5>Pre-processing</h5>
+            <a href="project-files/Project 1 Code.ipynb" style="align-self: flex-end;">(Code File)</a>
+        </div>
+        <p>
+            Starting the processing of the dataset by loading it as a Pandas dataframe.
+            <img class="code-img" src="images/P1/LoadData.png">
+            The read_csv method call required the encoding as cp1252 because certain game names include characters in a
+            format not supported by default, utf-8.
+            <img class="code-img" src="images/P1/NullCheck.png">
+            Checking the data for null to check if the set needs to be cleaned.
+            <img class="code-img" src="images/P1/PrintNull.png">
+            There is one null value in the Game column, which we print to check if it's going to be an issue.
+            <img class="code-img" src="images/P1/OneNull.png">
+            Looking at the original data on sullygnome, it likely appeared due to some bug on Twitch itself, as it is a
+            null name that only appears during this one month. Since it's the 162nd highest of the month and only
+            appears for 1 month, it shouldn't interfere with the question as it will get removed later anyway.
+            <img class="code-img" src="images/P1/TopRank.png">
+            Since the first questions are specifically about the most viewed games, we create a new data frame with only
+            the top 25 games of each month. This removes games that may be consistent in viewership but are always
+            ranked low.
+            <img class="code-img" src="images/P1/Top25ValueCounts.png">
+            <img class="code-img" src="images/P1/Top25Counts.png">
+            In the top 25 list now, all the games have reached the top 25 in the collection period. But now is the split
+            point where we separate the data between the two main questions. Looking at how many months different games
+            were in the stop 25, we notice a large percent of games fall within 3 months. Let's split those into two new
+            dataframes.
+            <img class="code-img" src="images/P1/StrongCounts.png">
+            <img class="code-img" src="images/P1/WeakCounts.png">
+            Now we have the two series games, one for games that stayed popular for many months and another for games
+            that were recorded in the top 25 for less than 3 months in the collection period.
+            <img class="code-img" src="images/P1/StrongData.png">
+            <img class="code-img" src="images/P1/WeakData.png">
+            The above two sections of code calculate totals for each game, which we wish to use to answer our questions.
+            In the weak_df section, you may notice extra code to not record data for the last dates as March 2023 and
+            then drop the NA values. This was done to prevent games that were just released and may have just started
+            getting traction from being counted as weak games. If a popular game was released later in the collection
+            period, it is obvious it would only be at the top for a few months.
+        </p>
+
+        <br>
+        <h5>Visualization</h5>
+        <p>
+            <img class="fit-screen" src="images/P1/HighMonths.png">
+            Looking at the top games by number of months in the top 25 rank, we can see that most streamed games are
+            multiplayer games. Many of these are not only multiplayer but also voice-based co-op games, which involve an
+            element of comedy and chaos. Watching live content is more restrictive and requires more focus than watching
+            recorded content because you can't rewind or pause and watch later. As such, content likely has to be more
+            engaging to keep a viewer interested, and the less planned nature of multiplayer games fits this idea.
+            <img class="fit-screen" src="images/P1/LowMonths.png">
+            Looking at games that reached the top 25 only a few months before falling off, we still see a lot of
+            multiplayer games, but now we start seeing more single-player games. Games like the Pokemon games start to
+            appear only after a month or two. This suggests that not only single-player games but games that tend to
+            have a similar structure between individual gameplay styles struggle in the live streaming content space.
+            <img class="fit-screen" src="images/P1/StreamedvsWatched.png">
+            The graph above shows the relationship between streamed hours of content and total hours watched. There is a
+            slight corrallation, but the amount of uncertainty suggests that the number of people and how long they
+            stream don't seem to correlate well with whether the public enjoys watching the content.
+        </p>
+
+        <br>
+        <h5>Storytelling</h5>
+        <p>
+            The data from Twitch suggests that the live streaming content space is dominated by multiplayer games. Games
+            that include team multiplayer dominate even more than other multiplayer games.
+            <br>
+            <br>
+            While this doesn't mean only multiplayer games see success, it does mean multiplayer games are just more
+            likely to see success in the live streaming space. But success in the live streaming space for a long period
+            of time likely diffuses into recorded content and the overall success of the game. For instance, people who
+            watch live content are likely to also watch similar recorded content, though this is all speculation and
+            would require more data and analysis on its factuality.
+            <br>
+            <br>
+            Single-player games struggle in live streaming, but we have all seen them succeed in recorded content space.
+            So it seems single-player games rely more on recorded content than live streaming
+        </p>
+
+        <br>
+        <h5>Impact</h5>
+        <p>
+            So depending on the type of game a developer has and/or the content space they wish to enter, it requires
+            different strategies. For instance, in the streaming space, based on the analysis, it seems that just
+            sponsoring many streamers to play your game doesn't seem to be a good idea as it doesn't correlate with
+            watch time.
+            <br>
+            <br>
+            If a game developer built a single-player game, focusing their efforts in this recorded content space would
+            result in greater success. Since we have seen them succeed, if it's not through streamed content, recorded
+            content has to be it.
+        </p>
+
+        <br>
+        <h5>References</h5>
+        <p> My Dataset:
+            <br>
+            <a href="https://www.kaggle.com/datasets/rankirsh/evolution-of-top-games-on-twitch" target="_blank">
+                https://www.kaggle.com/datasets/rankirsh/evolution-of-top-games-on-twitch
+            </a>
+            <br>
+            <a href="https://sullygnome.com" target="_blank">
+                https://sullygnome.com
+            </a>
+            <br>
+            Debugging:
+            <br>
+            <a href="https://stackoverflow.com/questions/45529507/unicodedecodeerror-utf-8-codec-cant-decode-byte-0x96-in-position-35-invalid"
+                target="_blank">
+                https://stackoverflow.com/questions/45529507/unicodedecodeerror-utf-8-codec-cant-decode-byte-0x96-in-position-35-invalid
+            </a>
+            <br>
+            <a href="https://sparkbyexamples.com/pandas/pandas-count-frequency-value-occurs-in-dataframe-column/"
+                target="_blank">
+                https://sparkbyexamples.com/pandas/pandas-count-frequency-value-occurs-in-dataframe-column/
+            </a>
+            <br>
+            <a href="https://stackoverflow.com/questions/16476924/how-to-iterate-over-rows-in-a-dataframe-in-pandas"
+                target="_blank">
+                https://stackoverflow.com/questions/16476924/how-to-iterate-over-rows-in-a-dataframe-in-pandas
+            </a>
+            <br>
+            <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html" target="_blank">
+                https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html
+            </a>
+            <br>
+            <a href="https://pandas.pydata.org/docs/reference/api/pandas.concat.html" target="_blank">
+                https://pandas.pydata.org/docs/reference/api/pandas.concat.html
+            </a>
+            <br>
+            <a href="https://stackoverflow.com/questions/42045767/how-can-i-change-the-x-axis-so-there-is-no-white-space/"
+                target="_blank">
+                https://stackoverflow.com/questions/42045767/how-can-i-change-the-x-axis-so-there-is-no-white-space/
+            </a>
+        </p>
+    </main>
+</body>
+
+</html>
