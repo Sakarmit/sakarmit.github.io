@@ -11,6 +11,11 @@
     margin:0;
 
     box-sizing: border-box;
+
+    font-size: 20px;
+    line-height: 31.5px;
+    overflow-wrap: break-word;
+    font-family: "playfair display", serif;
 }
 
 a {
@@ -82,13 +87,6 @@ main h3 {
 main h5 {
     font-size: 28px;
     font-weight: lighter;
-}
-
-main p {
-    font-size: 20px;
-    line-height: 31.5px;
-    overflow-wrap: break-word;
-    font-family: "playfair display", serif;
 }
 
 main a {
