@@ -61,18 +61,20 @@
             </ol>
         </ol>
         <br>
-        Another method agglomerative/hierarchical clustering works by repeating the same two steps over and over until
-        there is one
-        master cluster that has all the data points under it.
+        <p>
+            Another method agglomerative/hierarchical clustering works by repeating the same steps over and over
+            until there is one master cluster that has all the data points under it.
+        </p>
         <ol>
-            You start with each data point counting as its own cluster.
-            Then find the two closest clusters
-            Merge them into a new, larger cluster.
-            Repeat from step 2
+            <li>You start with each data point counting as its own cluster.</li>
+            <li>Then find the two closest clusters</li>
+            <li>Merge them into a new, larger cluster.</li>
+            <li>Repeat from step 2</li>
         </ol>
-        In the end, you end up with a binary tree where the root has a super cluster that includes all data points, and
-        each left has only one data point. So depending on how many clusters you want, you can go higher or lower in the
-        tree.
+        <p>
+            In the end, you end up with a binary tree where the root has a super cluster that includes all data points,
+            and each left has only one data point. So depending on how many clusters you want, you can go higher or
+            lower in the tree.
         </p>
 
         <br>
@@ -113,10 +115,9 @@
             <img class="code-img" src="images/P4/LoadData.png">
             Checking the data for null to check if the set needs to be cleaned.
             <img class="code-img" src="images/P4/NullCheck.png">
-            Since the data has no nulls, we can move on.
-            <br> As you can see, each column name is really long, which may cause a readability issue by taking up too
-            much space in the visuals.
-            So we will rename the columns to shorter acronyms.
+            Since the data has no nulls, we can move on. As you can see, each column name is really long, which may
+            cause a readability issue by taking up too much space in the visuals. So we will rename the columns to
+            shorter acronyms.
             <img class="code-img" src="images/P4/RenameColumn.png">
             Finally for the last pre-processing step we create a sub dataframe with FIPS and date removed because they
             are not needed in answering out question.
@@ -128,20 +129,18 @@
         <h5>Data Understanding/Visualization</h5>
         <p>
             Even before creating a visualization, it seems obvious that there will be some correlation between certain
-            features.
-            For instance, since all merchant and two retail spending features include other features in the calculation,
-            there is likely to be some level of correlation.
-            For others, there would likely also be some level of correlation due to just economic cycles of ups and
-            downs in spending and saving.
+            features. For instance, since all merchant and two retail spending features include other features in the
+            calculation, there is likely to be some level of correlation. For others, there would likely also be some
+            level of correlation due to just economic cycles of ups and downs in spending and saving.
             <br> Let's create a pair plot to see if those obvious correlations exist.
             <img class="fit-screen" src="images/P4/PairPlot.png">
             At first glance, it may seem there is an obvious correlation between all values (I thought so at first), but
             if you look closer, you see that most "lines" are quite big, meaning a given value for a feature gives an
-            extremely big range of possible values for the second.
-            Its surprising there is a similar issue with many comparisons with all, merchant, and two retail spending
-            features, meaning there is enough dilution from combining all features that correlation decreased. There was
-            a correlation between the two retail stores, meaning grocery had an impact on the correlation but not enough
-            to disrupt all other features together at many points.
+            extremely big range of possible values for the second. Its surprising there is a similar issue with many
+            comparisons with all, merchant, and two retail spending features, meaning there is enough dilution from
+            combining all features that correlation decreased. There was a correlation between the two retail stores,
+            meaning grocery had an impact on the correlation but not enough to disrupt all other features together at
+            many points.
         </p>
 
         <br>
@@ -173,8 +172,7 @@
             With the model, the issue discussed about the huge still exists, but it is easier to visualize in
             certain comparisons like ACF and GEN&AAP, where if one has a positive, another has roughly positive
             increases. While in the case of AER and GRF, the orange cluster seems to cut into a blue cluster, highly
-            likely
-            signifying the model didn't use these two together as much to create clusters.
+            likely signifying the model didn't use these two together as much to create clusters.
             <br> There are likely days worth of analysis to be done on this overly simplified model to understand the
             reason for each clustering choice, but it is beyond the scope of this project.
             But to answer the original question, are there changes in one sector that are also reflected in another? It
@@ -203,9 +201,9 @@
         <br>
 
         <h5>References</h5>
-        Dataset: <a href="https://www.kaggle.com/datasets/rajatsurana979/percent-change-in-consumer-spending/"
-            target="_blank">https://www.kaggle.com/datasets/rajatsurana979/percent-change-in-consumer-spending/</a>
-        <br>
+        <p>Dataset: <a href="https://www.kaggle.com/datasets/rajatsurana979/percent-change-in-consumer-spending/"
+                target="_blank">https://www.kaggle.com/datasets/rajatsurana979/percent-change-in-consumer-spending/</a>
+        </p>
         <a href="webpages.charlotte.edu/mirsad/itcs6265/group1/ward_min_variance.html"
             target="_blank">webpages.charlotte.edu/mirsad/itcs6265/group1/ward_min_variance.html</a>
         <br>
