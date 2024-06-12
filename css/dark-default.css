@@ -1,10 +1,9 @@
 :root {
-    --normal-background: #26282d;
-    --darked-background: #1e2025;
-    --normal-text: rgb(240, 240, 240);
-    --text-url: rgb(180, 150, 255);
-    --darker-border: #rgb(18, 18, 18);
-    --primary-active-color: rgb(109, 151, 115);
+    --normal-background: #373C43;
+    --darked-background: #191D24;
+    --normal-text: #F5F5F5;
+    --primary-color: #B80000;
+    --secondary-color: #8B0000;
 }
 
 * {
@@ -53,7 +52,7 @@ nav li {
 
 nav a:hover, 
 nav a:active{
-    border-bottom: 4px solid var(--primary-active-color);
+    border-bottom: 4px solid var(--primary-color);
 }
 
 nav a {
