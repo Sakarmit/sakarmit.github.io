@@ -54,37 +54,37 @@
         <br>
         <div class="inline">
             <h5>Pre-processing</h5>
-            <a href="project-files/Project 1 Code.ipynb" style="align-self: flex-end;">(Code File)</a>
+            <a href="project-files/Project 1 Code.ipynb">&nbsp; (Code File)</a>
         </div>
         <p>
             Starting the processing of the dataset by loading it as a Pandas dataframe.
-            <img class="code-img" src="images/P1/LoadData.png">
+            <img class="outline center" src="images/P1/LoadData.png">
             The read_csv method call required the encoding as cp1252 because certain game names include characters in a
             format not supported by default, utf-8.
-            <img class="code-img" src="images/P1/NullCheck.png">
+            <img class="outline center" src="images/P1/NullCheck.png">
             Checking the data for null to check if the set needs to be cleaned.
-            <img class="code-img" src="images/P1/PrintNull.png">
+            <img class="outline center" src="images/P1/PrintNull.png">
             There is one null value in the Game column, which we print to check if it's going to be an issue.
-            <img class="code-img" src="images/P1/OneNull.png">
+            <img class="outline center" src="images/P1/OneNull.png">
             Looking at the original data on sullygnome, it likely appeared due to some bug on Twitch itself, as it is a
             null name that only appears during this one month. Since it's the 162nd highest of the month and only
             appears for 1 month, it shouldn't interfere with the question as it will get removed later anyway.
-            <img class="code-img" src="images/P1/TopRank.png">
+            <img class="outline center" src="images/P1/TopRank.png">
             Since the first questions are specifically about the most viewed games, we create a new data frame with only
             the top 25 games of each month. This removes games that may be consistent in viewership but are always
             ranked low.
-            <img class="code-img" src="images/P1/Top25ValueCounts.png">
-            <img class="code-img" src="images/P1/Top25Counts.png">
+            <img class="outline center" src="images/P1/Top25ValueCounts.png">
+            <img class="outline center" src="images/P1/Top25Counts.png">
             In the top 25 list now, all the games have reached the top 25 in the collection period. But now is the split
             point where we separate the data between the two main questions. Looking at how many months different games
             were in the stop 25, we notice a large percent of games fall within 3 months. Let's split those into two new
             dataframes.
-            <img class="code-img" src="images/P1/StrongCounts.png">
-            <img class="code-img" src="images/P1/WeakCounts.png">
+            <img class="outline center" src="images/P1/StrongCounts.png">
+            <img class="outline center" src="images/P1/WeakCounts.png">
             Now we have the two series games, one for games that stayed popular for many months and another for games
             that were recorded in the top 25 for less than 3 months in the collection period.
-            <img class="code-img" src="images/P1/StrongData.png">
-            <img class="code-img" src="images/P1/WeakData.png">
+            <img class="outline center" src="images/P1/StrongData.png">
+            <img class="outline center" src="images/P1/WeakData.png">
             The above two sections of code calculate totals for each game, which we wish to use to answer our questions.
             In the weak_df section, you may notice extra code to not record data for the last dates as March 2023 and
             then drop the NA values. This was done to prevent games that were just released and may have just started

@@ -109,20 +109,20 @@
 
         <div class="inline">
             <h5>Pre-processing</h5>
-            <a href="project-files/Project 4 Code.ipynb" style="align-self: flex-end; margin-left: 5px;">(Code File)</a>
+            <a href="project-files/Project 4 Code.ipynb">&nbsp; (Code File)</a>
         </div>
         <p>
             Starting the processing of the dataset by loading it as a Pandas dataframe.
-            <img class="code-img" src="images/P4/LoadData.png">
+            <img class="outline center" src="images/P4/LoadData.png">
             Checking the data for null to check if the set needs to be cleaned.
-            <img class="code-img" src="images/P4/NullCheck.png">
+            <img class="outline center" src="images/P4/NullCheck.png">
             Since the data has no nulls, we can move on. As you can see, each column name is really long, which may
             cause a readability issue by taking up too much space in the visuals. So we will rename the columns to
             shorter acronyms.
-            <img class="code-img" src="images/P4/RenameColumn.png">
+            <img class="outline center" src="images/P4/RenameColumn.png">
             Finally for the last pre-processing step we create a sub dataframe with FIPS and date removed because they
             are not needed in answering out question.
-            <img class="code-img" src="images/P4/Sub_df.png">
+            <img class="outline center" src="images/P4/Sub_df.png">
         </p>
 
         <br>
@@ -153,11 +153,11 @@
             <br> For the model I have decided to use agglomerative because it doesn't require me to trial and error the
             number of K clusters. It also allows a non perfect cluster while for K-means clusters must be a centriod.
             <br> For agglomerative first we create a dendrogram to find out the number of clusters to use.
-            <img class="code-img" src="images/P4/Create_Dendrogram.png">
+            <img class="outline center" src="images/P4/Create_Dendrogram.png">
             We use the ward method because it focus on reducing variance of all attributes within a cluster.
             <img class="fit-screen" src="images/P4/Dendrogram.png">
             We choose use 2 clusters because its the section with height distance between two clusters merging.
-            <img class="code-img" src="images/P4/Agglomerative_Model.png">
+            <img class="outline center" src="images/P4/Agglomerative_Model.png">
         </p>
 
         <br>

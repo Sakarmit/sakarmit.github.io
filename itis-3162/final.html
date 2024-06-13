@@ -69,19 +69,19 @@
         <h5>Methods and Evaluations</h5>
         <p>
             Now, before we move on to modeling, we must load and clean the dataset. Let's remove unnecessary data.
-            <img class="code-img" src="images/Final/LoadDataset.png">
+            <img class="outline center" src="images/Final/LoadDataset.png">
             As stated earlier, columns past 52 are only useful when a class has multiple sections. Now since we are
             looking at generalized trends, we can remove these rows because if the trend doesn't appear after the
             removal of the rows, it is likely not a generalized trend.
-            <img class="code-img" src="images/Final/ReduceNullColumns.png">
+            <img class="outline center" src="images/Final/ReduceNullColumns.png">
             This removal reduces our column count from 324 to 52. It also removes the sections for certain classes that
             had data in them that brought the row count to 564 (~10% of the overall data). We also remove columns that I
             believe are insignificant (like termDesc etc.), contain information that can be derived from
             others (seatsAvailable, openSection, etc.), or contain the same information for all rows (linkIdentifier,
             isSectionLinked, etc.).
-            <img class="code-img" src="images/Final/RemoveMoreColumns.png">
+            <img class="outline center" src="images/Final/RemoveMoreColumns.png">
             Start by checking the nulls in all columns before starting to clean them.
-            <img class="code-img" src="images/Final/NullCheck.png">
+            <img class="outline center" src="images/Final/NullCheck.png">
             Now replace nulls in columns such as:
         <ul>
             <li>days of the week with false</li>
@@ -92,30 +92,30 @@
         </ul>
         </p>
         <p>
-            <img class="code-img" src="images/Final/CleanedNullCheck.png">
+            <img class="outline center" src="images/Final/CleanedNullCheck.png">
             Now moving on to many processes to encode the non-numerical columns using multiple ways. Converting the data
             types below:
-            <img class="code-img" src="images/Final/dataTypeChecker.png">
+            <img class="outline center" src="images/Final/dataTypeChecker.png">
             Due to the addition of new dummy columns, all the new data types are difficult to show, but you can check
             out the code file to see them.
             <br>
             Now finally onto modeling. I start modeling with sklean linear regression. Creating nested loops to try
             different test sizes. This format requires a few iterations of modifying the si calculation to find the best
             model linear regression can make.
-            <img class="code-img" src="images/Final/LinearRegression.png">
+            <img class="outline center" src="images/Final/LinearRegression.png">
             So that didn't work out well, with no model breaking the 33.518% accuracy score.
             So next, I tried adding back all numerical columns without nulls, which I thought were insignificant earlier
             and dropped.
-            <img class="code-img" src="images/Final/AddingBackColumns.png">
+            <img class="outline center" src="images/Final/AddingBackColumns.png">
             That was a shock, and because of this success, I decided to even add back more non-null but non-numerical
             columns using an encoder.
-            <img class="code-img" src="images/Final/AddingBackColumns2.png">
+            <img class="outline center" src="images/Final/AddingBackColumns2.png">
             That increases the R<sup>2</sup> score again. Although a student on Discord (Biscordman) stated that
             R<sup>2</sup> always
             increases with more columns, research turns out it's a common symptom of overfitting. So moving on now,
             since adding columns didn't help, I looked at the coefficients to see which column had the most impact of
             all.
-            <img class="code-img" src="images/Final/Coefs.png">
+            <img class="outline center" src="images/Final/Coefs.png">
             Period of the class seems to have a significant positive impact with endDate and partOfTerm and the most
             negative impact with startDate. While the model isn't accurate, at least these coefficients make sense, as
             people are more likely to pick full terms compared to other options. The surprise is that in this model,
@@ -125,9 +125,9 @@
             models in depth that provide predictions of continuous values. When I asked ChatGPT for ideas, it
             recommended Decision Tree Regressor, which I created and which has a higher success rate. (I tried SVR
             first, which I am familiar with, but the results were next to zero.)
-            <img class="code-img" src="images/Final/DecisionTreeRegressor.png">
+            <img class="outline center" src="images/Final/DecisionTreeRegressor.png">
             Looking at the features of one of the modals.
-            <img class="code-img" src="images/Final/FeatureImportant.png">
+            <img class="outline center" src="images/Final/FeatureImportant.png">
             Only 18 of the features had any impact, with only nine having a 1% impact.
         </p>
 

@@ -52,28 +52,28 @@
         </p>
         <div class="inline">
             <h5>Pre-processing</h5>
-            <a href="project-files/Project 2 Code.ipynb" style="align-self: flex-end;">(Code File)</a>
+            <a href="project-files/Project 2 Code.ipynb">&nbsp; (Code File)</a>
         </div>
         <p>
             We start dataset processing by loading it as a Pandas dataframe.
-            <img class="code-img" src="images/P2/LoadingData.png">
+            <img class="outline center" src="images/P2/LoadingData.png">
             Next, check the data for nulls to see if we need to clean the data.
-            <img class="code-img" src="images/P2/NullCheck.png">
+            <img class="outline center" src="images/P2/NullCheck.png">
             The last value, 'unnamed:32' contains only nulls this is due to some file formatting issues.
-            <img class="code-img" src="images/P2/DropRandomColumn.png">
+            <img class="outline center" src="images/P2/DropRandomColumn.png">
             The data doesn't require any more cleaning, so we move on to preparing for model creation.
             First, we split the dataframe into two, one holding the features of a cell and
             another hold its category. We also drop ID during this step because
             we don't want this arbitrary value to impact our model.
-            <img class="code-img" src="images/P2/SplitDiagnosis.png">
+            <img class="outline center" src="images/P2/SplitDiagnosis.png">
             First, let's see what the split of categories is.
             The split is 2 to 3, with more Benign cells.
-            <img class="code-img" src="images/P2/CategorySplit.png">
+            <img class="outline center" src="images/P2/CategorySplit.png">
             Since we are going to be using a learning algorithm,
             we split the data into training and testing data.
             For no particular reason, I choose to use 80% of the
             data for learning and the other 20% for testing.
-            <img class="code-img" src="images/P2/DataSplit.png">
+            <img class="outline center" src="images/P2/DataSplit.png">
             Now that we have our data ready we move on to training our model.
         </p>
 
@@ -95,7 +95,7 @@
             <img class="fit-screen" src="images/P2/PairPlot.png">
             We still have to decide which kernel to use for Support vector machines. We create a model starting with
             a linear kernel.
-            <img class="code-img" src="images/P2/CreatingModel.png">
+            <img class="outline center" src="images/P2/CreatingModel.png">
         </p>
 
         <br>
@@ -108,7 +108,7 @@
             someone would get chemotherapy, which can have other long term negative impacts.
             False negatives where a malignant cell is indicated as a benign cell mean we miss cancer cells,
             which is the whole point of this analysis.
-            <img class="code-img" src="images/P2/LinearF1Score.png">
+            <img class="outline center" src="images/P2/LinearF1Score.png">
             The high f1 score in the previous section suggests that this SVM model is
             highly above the baseline for predicting whether a cell is malignant.
             This was with no more fine tuning past the simplest and default options.

@@ -1,7 +1,7 @@
 :root {
     --normal-background: #373C43;
     --darked-background: #191D24;
-    --normal-text: #F5F5F5;
+    --normal-text: white;
     --primary-color: #B80000;
     --secondary-color: #8B0000;
 }
@@ -10,6 +10,8 @@
     margin:0;
 
     box-sizing: border-box;
+    
+    color: var(--normal-text);
 }
 
 a {
@@ -34,7 +36,6 @@ header {
 }
 
 header h1{
-    color: var(--normal-text);
     padding-left: 1rem;
 }
 
@@ -55,13 +56,8 @@ nav a:active{
     border-bottom: 4px solid var(--primary-color);
 }
 
-nav a {
-    color: white;
-}
-
 body {
     background-color: var(--normal-background);
-    color: var(--normal-text);
     display: grid;
     grid-template-rows: 6rem 1fr 3rem;
     grid-template-columns: 5% 90% 5%;
@@ -83,10 +79,6 @@ main h5 {
     font-weight: lighter;
 }
 
-main a {
-    color: var(--text-url);
-}
-
 main p, main li, main ol, main a {
     font-size: 20px;
     line-height: 31.5px;
@@ -94,27 +86,16 @@ main p, main li, main ol, main a {
     font-family: "playfair display", serif;
 }
 
-main img {
-    display: block;
-    margin:0 auto;
-}
-
-figcaption {
-    display: flex;
-    justify-content: center;
-}
-
 .inline {
     display: inline-flex;
 }
 
-.code-img {
+.outline {
     display: flex;
     background-color: var(--darked-background);
     padding: 5px;
     max-width: 100%;
     border: 1px solid var(--normal-text);
-    margin: 0 auto;
 }
 
 .fit-screen {
@@ -126,6 +107,7 @@ figcaption {
 .center {
     display: flex;
     justify-content: center;
+    margin: 0 auto;
 }
 
 .paragraph-indent {

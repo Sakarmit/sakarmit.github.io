@@ -60,12 +60,12 @@
         <h5>Data understanding</h5>
         <p>
             Before anything, we need to convert and load the CSV data file into a Pandas dataframe.
-            <img class="code-img" src="images/P3/Initial.png">
+            <img class="outline center" src="images/P3/Initial.png">
             Looking at the shape of the data frame, we notice that it contains a really large amount of data, so we will
             likely need to find ways to reduce the size to increase modeling speed. But for now onward, just understand
             what we are working with. The Kaggle page already provides a good description of all the features. So I
             moved on to checking for nulls.
-            <img class="code-img" src="images/P3/NullCheck.png">
+            <img class="outline center" src="images/P3/NullCheck.png">
             As we see, many features have nulls. We see that there are groupings with similar numbers of null values.
             For instance, four garage-related features all have 81 null values. Hence, there may be multicollinearity
             between these features.
@@ -76,19 +76,19 @@
         <p>
             For the features that barely have nulls, we will take care of that by just dropping rows containing them.
             Since this is a really small percent of the entire dataset, it should impact our models.
-            <img class="code-img" src="images/P3/DropSomeNulls.png">
+            <img class="outline center" src="images/P3/DropSomeNulls.png">
             We can also remove the columns with a large null count because a large portion of our dataset doesn't have
             those values anyway, and just looking at them, it seems to be for extra things, not the main house itself.
-            <img class="code-img" src="images/P3/NoNulls.png">
+            <img class="outline center" src="images/P3/NoNulls.png">
             Next, we must also drop all non-numerical columns as our regression model doesn't support them, and we
             already have too many columns, so creating dummy columns for each would increase the model training time
             significantly.
-            <img class="code-img" src="images/P3/NumsOnly.png">
+            <img class="outline center" src="images/P3/NumsOnly.png">
             Next, we also drop the ID column since its an arbitrary value for the dataset and not actually housing.
-            <img class="code-img" src="images/P3/DropId.png">
+            <img class="outline center" src="images/P3/DropId.png">
             Now we move on to separating data into two: independent variables (our features) and output or dependent
             variable (the house price).
-            <img class="code-img" src="images/P3/SplitPrice.png">
+            <img class="outline center" src="images/P3/SplitPrice.png">
         </p>
 
         <br>
@@ -99,16 +99,16 @@
             features and price dataframes to create training and testing sets. Finally, we import, create, and train our
             linear model on the training subset. We run the model many times, keeping track of an average and the best
             scoring model to ensure accuracy.
-            <img class="code-img" src="images/P3/LinearModel.PNG">
+            <img class="outline center" src="images/P3/LinearModel.PNG">
         </p>
 
         <br>
         <h5>Evaluation</h5>
         <p>
             After training, we get a variety of scores, with the highest I have seen being around 0.876.
-            <img class="code-img" src="images/P3/LinearScore.png">
+            <img class="outline center" src="images/P3/LinearScore.png">
             Looking at the coefficients of the model with the above score, we get.
-            <img class="code-img" src="images/P3/LinearCoef.png">
+            <img class="outline center" src="images/P3/LinearCoef.png">
             It seems that the remaining features we can see have the most positive and negative values in terms of
             price. A surprising thing I see is that LotArea doesn't seem to have much impact on the value, which is
             against what I believe to be true. Some things came as expected, like overall quality, which has the most
@@ -121,10 +121,10 @@
         <p>
             Since we removed many features, I am going to now try and see if we can keep them. Since using dummies
             causes more than 250 columns, I decided against this.
-            <img class="code-img" src="images/P3/DummiesAttempt.png">
+            <img class="outline center" src="images/P3/DummiesAttempt.png">
             Instead, I used LabelEncoder from the Skelearn library to encode each categorical value into a number. This
             leaves us with the strings being usable while also not changing the number of columns.
-            <img class="code-img" src="images/P3/EncodedDf.PNG">
+            <img class="outline center" src="images/P3/EncodedDf.PNG">
             The average score for this new dataframe was better by 0.02, but the best model was still 0.876. In terms of
             coefficient, it seems street (paved or gravel) has the most impact of all, dwarfing the second most positive
             impact by more than three times. The most negative impact can be caused by the fact that the property has
