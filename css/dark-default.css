@@ -82,7 +82,8 @@ main h5 {
 main p, main li, main ol, main a {
     font-size: 20px;
     line-height: 31.5px;
-    overflow-wrap: break-word;
+    text-align:justify;
+    word-break:keep-all;
     font-family: "playfair display", serif;
 }
 
