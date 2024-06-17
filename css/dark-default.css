@@ -114,3 +114,27 @@ main p, main li, main ol, main a {
 .paragraph-indent {
     text-indent: 50px;
 }
+
+/* Credit for next three selectors (With some modifications form me): 
+   https://codepen.io/fenixmedia/pen/myZbXd */
+   
+.h-divider {
+    margin-top: 20px;
+    margin-left: -2.5%;
+    width: 105%;
+}
+  
+.h-divider .shadow {
+    overflow: hidden;
+    height: 20px;
+}
+  
+.h-divider .shadow:after {
+    content: '';
+    display: block;
+    margin: -25px auto 0;
+    width: 100%;
+    height: 25px;
+    border-radius: 80px/10px;
+    box-shadow: 0 0 8px black;
+}
