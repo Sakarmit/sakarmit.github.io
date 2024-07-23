@@ -2,7 +2,7 @@
     --normal-background: #373C43;
     --darked-background: #191D24;
     --normal-text: white;
-    --primary-color: #B80000;
+    --primary-color: #FF1010;
     --secondary-color: #8B0000;
 }
 
@@ -60,7 +60,7 @@ nav li {
 }
 
 nav a:hover, 
-nav a:active{
+nav a:active {
     border-bottom: 4px solid var(--primary-color);
 }
 
@@ -95,6 +95,16 @@ main p, main li, main ol, main a {
     font-family: "playfair display", serif;
 }
 
+main a {
+    font-style: italic;
+    text-decoration: underline;
+}
+
+main a:hover, main a:active {
+    color: var(--primary-color);
+    text-decoration-color: var(--secondary-color);
+}
+
 .inline {
     display: inline-flex;
 }
@@ -121,6 +131,13 @@ main p, main li, main ol, main a {
 
 .paragraph-indent {
     text-indent: 50px;
+}
+
+.glossary {
+    display: flex;
+    flex-wrap: wrap;
+    text-wrap: nowrap;
+    justify-content: space-around;
 }
 
 /* Credit for next three selectors (With some modifications form me): 
