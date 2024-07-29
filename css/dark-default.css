@@ -82,8 +82,18 @@ main h3 {
     font-weight: lighter;
 }
 
-main h5 {
+main h4 {
     font-size: 28px;
+    font-weight: lighter;
+}
+
+main h5 {
+    font-size: 22px;
+    font-weight: lighter;
+}
+
+main h6 {
+    font-size: 18px;
     font-weight: lighter;
 }
 

@@ -42,7 +42,7 @@
     <main>
         <h3  class="center">House Prices Prediction</h3>
         <br>
-        <h5>Introduction to the problem and dataset</h5>
+        <h4>Introduction to the problem and dataset</h4>
         <p>
             Compared to a few years ago, the housing market has grown extremely unstable as finding affordable housing
             gets more difficult. The percentage of young adults living with parents currently is close to that of those
@@ -56,7 +56,7 @@
         </p>
 
         <br>
-        <h5>What is regression and how does it work?</h5>
+        <h4>What is regression and how does it work?</h4>
         <p>
             Regression is a mathematical and data science model that can be used to understand the relationship between
             dependent and independent variables. Once the model is created, it can also be used to predict continuous
@@ -73,7 +73,7 @@
         </p>
 
         <br>
-        <h5>Data understanding</h5>
+        <h4>Data understanding</h4>
         <p>
             Before anything, we need to convert and load the CSV data file into a Pandas dataframe.
             <img class="outline center" src="images/P3/Initial.png">
@@ -88,7 +88,7 @@
         </p>
 
         <br>
-        <h5>Pre-processing</h5>
+        <h4>Pre-processing</h4>
         <p>
             For the features that barely have nulls, we will take care of that by just dropping rows containing them.
             Since this is a really small percent of the entire dataset, it should impact our models.
@@ -108,7 +108,7 @@
         </p>
 
         <br>
-        <h5>Modeling</h5>
+        <h4>Modeling</h4>
         <p>
             For the first experiment, I am going to use linear regression in an attempt to model the dataset. We will
             use the model trainer from the Sklearn library to create this. Before we begin, we must further split the
@@ -119,7 +119,7 @@
         </p>
 
         <br>
-        <h5>Evaluation</h5>
+        <h4>Evaluation</h4>
         <p>
             After training, we get a variety of scores, with the highest I have seen being around 0.876.
             <img class="outline center" src="images/P3/LinearScore.png">
@@ -133,7 +133,7 @@
         </p>
 
         <br>
-        <h5>Experiment 2</h5>
+        <h4>Experiment 2</h4>
         <p>
             Since we removed many features, I am going to now try and see if we can keep them. Since using dummies
             causes more than 250 columns, I decided against this.
@@ -148,7 +148,7 @@
         </p>
 
         <br>
-        <h5>Experiment 3</h5>
+        <h4>Experiment 3</h4>
         <p>
             In our data understanding, we saw that there may have been a correlation between some features. Let's see if
             another correlation exists using a correlation heatmap. There are some obvious correlations, like those
@@ -162,7 +162,7 @@
         </p>
 
         <br>
-        <h5>Impact</h5>
+        <h4>Impact</h4>
         <p>
             The true impacts of this project are unknown. An obvious positive is that new buyers can use this
             understanding of how each feature impacts a house price to negotiate and understand whether a price is
@@ -172,7 +172,7 @@
         </p>
 
         <br>
-        <h5>Conclusion</h5>
+        <h4>Conclusion</h4>
         <p>
             In conclusion, in terms of impact, the price of a house is influenced by its overall quality the most,
             rather than one feature. Additionally, because of the significant accuracy of an even basic linear model, it
@@ -183,7 +183,7 @@
         </p>
 
         <br>
-        <h5>References</h5>
+        <h4>References</h4>
         <p> My Dataset:
             <a href="https://www.kaggle.com/competitions/house-prices-advanced-regression-techniques/data"
                 target="_blank">
