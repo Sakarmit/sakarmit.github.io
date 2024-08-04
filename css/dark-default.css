@@ -14,6 +14,10 @@
     color: var(--normal-text);
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 a {
     text-decoration: none;
 }
@@ -99,7 +103,7 @@ main h6 {
 
 main p, main li, main ol, main a {
     font-size: 20px;
-    line-height: 31.5px;
+    line-height: 25px;
     text-align:justify;
     word-break:keep-all;
     font-family: "playfair display", serif;
@@ -113,6 +117,14 @@ main a {
 main a:hover, main a:active {
     color: var(--primary-color);
     text-decoration-color: var(--secondary-color);
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    text-align: center;
+    flex-direction: column;
 }
 
 .inline {
@@ -133,12 +145,6 @@ main a:hover, main a:active {
     max-width: 100%;
 }
 
-.center {
-    display: flex;
-    justify-content: center;
-    margin: 0 auto;
-}
-
 .paragraph-indent {
     text-indent: 50px;
 }
@@ -146,6 +152,7 @@ main a:hover, main a:active {
 .glossary {
     display: flex;
     flex-wrap: wrap;
+    gap: 3px;
     text-wrap: nowrap;
     justify-content: space-around;
 }
