@@ -132,11 +132,19 @@ main a:hover, main a:active {
 }
 
 .outline {
-    display: flex;
-    background-color: var(--darked-background);
     padding: 5px;
     max-width: 100%;
     border: 1px solid var(--normal-text);
+    display: block;
+}
+
+.catalog {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 5px;
+    padding: 5px;
+    max-width: 100%;
 }
 
 .fit-screen {
@@ -146,7 +154,7 @@ main a:hover, main a:active {
 }
 
 .paragraph-indent {
-    text-indent: 50px;
+    text-indent: 2em;
 }
 
 .glossary {
