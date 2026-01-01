@@ -3,18 +3,18 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../css/dark-default.css">
+    <link rel="stylesheet" href="../css/default.css">
     <script src="script/script.js" defer></script>
 </head>
 
 <body>
     <header>
         <div class="inline">
-            <a href="/index.html">
-                <h1>
+            <h1>
+                <a href="/index.html">
                     Smit Sakariya
-                </h1>
-            </a>
+                </a>
+            </h1>
             <div>
                 <a href="https://www.linkedin.com/in/smit-sakariya" target="_blank">
                     <img src="/images/contacts/linkedin-icon.png">
@@ -30,11 +30,10 @@
                 </a>
             </div>
         </div>
-        <nav>
-            <ul>
-                <li><a href="/itis-3162/itis-3162.html">ITIS 3162</a></li>
-            </ul>
-        </nav>
+        <div id = "theme-selector">
+            <img id="theme-icon" src="/images/theme/theme-switch.png"/>
+            <div id="theme-selected"></div>
+        </div>
     </header>
     <main>
         <br>
@@ -46,9 +45,11 @@
             tackling new challenges. With a passion for backend development and debugging, I've honed my skills across
             various languages, including Javascript, Python, C#, and many more, with hands-on projects. Driven by the
             philosophy that giving your best effort is crucial to achieving the best results, I aspire to grow my
-            knowledge and connections in the tech industry, with the ultimate goal of founding my own business. I serve
-            as an instructional assistant, where I've strengthened my technical knowledge and grown personally,
-            overcoming social anxiety and refining my ability to simplify complex concepts.
+            knowledge and connections in the tech industry, with the ultimate goal of founding my own business. I worked
+            on
+            my team projects, where I've strengthened my technical knowledge and grown personally,
+            overcoming social anxiety and refining my ability to breakdown complex concepts into simpler, understandable
+            parts.
         </p>
 
         <div class="h-divider">
@@ -62,24 +63,27 @@
         </div>
 
         <h4 id='work-experience' class="center">Work Experience</h4>
-        <br>
         <div class="outline">
             <p class="paragraph-indent">
-            Over Summer 2025, I worked as a Research Assistant for Dr. Laurel Powell. The research focused on
-            developing a game that teaches students about: logical operators, laws and quantifiers. Unofficially I 
-            took on the role of the lead programmer, where I helped design, and implement the game mechanics in 
-            Javascript using the Phaser framework. I also handled task management, ensuring that everyone was assigned
-            tasks that suited their skills and interests, while also providing support and guidance when needed.
-            This experience has significantly enhanced my programming skills, particularly in game development, and
-            has deepened my understanding of educational game design. It has also improved my leadership and teamwork
-            abilities, as I learned to coordinate effectively with team members and adapt to the dynamic nature of
-            game development.
+                Over Summer 2025, I worked as a Research Assistant for Dr. Laurel Powell. The research focused on
+                developing a game that teaches students about: logical operators, laws and quantifiers. Unofficially I
+                took on the role of the lead programmer, where I helped design, and implement the game mechanics in
+                Javascript using the Phaser framework. I also handled task management, ensuring that everyone was
+                assigned
+                tasks that suited their skills and interests, while also providing support and guidance when needed.
+                This experience has significantly enhanced my programming skills, particularly in game development, and
+                has deepened my understanding of educational game design. It has also improved my leadership and
+                teamwork
+                abilities, as I learned to coordinate effectively with team members and adapt to the dynamic nature of
+                game development.
             </p>
             <br>
             <p class="paragraph-indent">
-            The game is currently in early prototype stage, and this summer focused on creating first playable sub games.
-            The goal was to make the game future proof, so that it can be expanded upon in the future with more funding. 
-            Ensuring code was modular and easy to understand was a priority.
+                The game is currently in early prototype stage, and this summer focused on creating first playable sub
+                games.
+                The goal was to make the game future proof, so that it can be expanded upon in the future with more
+                funding.
+                Ensuring code was modular and easy to understand was a priority.
             </p>
         </div>
         <br>
@@ -97,7 +101,6 @@
         </div>
 
         <h4 id='undergraduate' class="center">Formal Education</h4>
-        <br>
         <div class="outline" style="flex-direction: column;">
             <img class="center fit-screen" src="images/uncc.svg" style="max-height: 220px;">
             <div style="display: flex; justify-content: center;">
@@ -134,7 +137,7 @@
 
 
         <h4 id='individual-projects' class="center">Individual Projects</h4>
-        <p>
+        <p class="outline">
             <a href="https://github.com/Sakarmit/Snake_VS_Snake">Snake VS Snake</a>
             <br><br>
             <a href="https://github.com/Sakarmit/WGO-API">WGO-API</a>
@@ -149,8 +152,10 @@
         </div>
 
         <h4 id='group-projects' class="center">Group Projects</h4>
-        <p>
-            Learn to Play: Publication pending
+        <p class="outline">
+            <a href="https://meetsync-l0t8.onrender.com/">MeetSync</a>
+            <br><br>
+            Learn to Play
             <br><br>
             <a href="https://github.com/Sakarmit/CourseGraph">CourseGraph</a>
             <br><br>
@@ -163,26 +168,22 @@
             <div class="shadow"></div>
         </div>
 
-        <h4 id='games' class="center">Game Development Club</h4>
-        <br>
-        <p>
-            <div class="inline center catalog">
-                <a href="https://sakarmit.itch.io/orbital-loop"
-                    class="outline">
-                    <img src="images/game/orbital-loop.png"/>
+        <h4 id='games' class="center">Competition Games</h4>
+        <div class="outline">
+            <div class="inline catalog">
+                <a href="https://sakarmit.itch.io/orbital-loop">
+                    <img src="images/game/orbital-loop.png" />
                 </a>
-                <a href="https://v3.globalgamejam.org/2023/games/nbslrr-0"
-                    class="outline">
-                    <img src="images/game/TreeSpirit.png"/>
+                <a href="https://v3.globalgamejam.org/2023/games/nbslrr-0">
+                    <img src="images/game/TreeSpirit.png" />
                 </a>
-                <a href="https://sweetfrontier.itch.io/rogue-science"
-                    class="outline">
-                    <img src="images/game/rogue-science.png"/>
+                <a href="https://sweetfrontier.itch.io/rogue-science">
+                    <img src="images/game/rogue-science.png" />
                 </a>
             </div>
-        </p>
-        <p>The following games were made with the Sweet Frontier team for 48 hour Game Jams (Click to play/download).</p>
-        <br>
+            <p>The following games were made with the Sweet Frontier team for 48 hour Game Jams (Click to
+                play/download).</p>
+        </div>
         <div class="h-divider">
             <div class="shadow"></div>
         </div>
