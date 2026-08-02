@@ -184,15 +184,6 @@ main a:hover, main a:active {
     display: block;
 }
 
-.catalog {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 5px;
-    padding: 5px;
-    max-width: 100%;
-}
-
 .fit-screen {
     display: flex;
     padding: 5px;
